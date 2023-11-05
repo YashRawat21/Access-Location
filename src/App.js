@@ -1,5 +1,4 @@
 
-import './App.css';
 import PostalCode from './components/PostalCode';
 
 function App() {
