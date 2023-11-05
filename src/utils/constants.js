@@ -1,0 +1,1 @@
+export const mapsImg = "https://wallpapercave.com/wp/wp4313180.jpg";
