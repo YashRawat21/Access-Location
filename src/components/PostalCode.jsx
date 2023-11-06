@@ -23,7 +23,7 @@ const PostalCode = () => {
   return (
     <>
     <div className='absolute'>
-      {/* <img  src = {mapsImg}  alt = "mapsImg"className='w-screen' /> */}
+      <img  src = {mapsImg}  alt = "mapsImg"className='w-screen' />
     </div>
     <div className='flex justify-center relative'>
      <input placeholder='Enter Postal Code' className='w-3/12 items-center p-2 my-32 mx-2 bg-black outline-none text-white ' onChange={(e) => setPostalCode(e.target.value)}/>
