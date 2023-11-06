@@ -8,6 +8,9 @@ const PostalCode = () => {
      const [postalCode, setPostalCode] = useState('');
      const selectPostalCode = useSelector(state => state.app.postalCode)
      const [loading, setLoading] = useState(false);
+     const clearHandler = () => {
+        setPostalCode("")
+      }
     const handleClick = () => {
         dispatch(updatePostalCode(postalCode))
         dispatch(updateLoading(true));
@@ -26,8 +29,12 @@ const PostalCode = () => {
       <img  src = {mapsImg}  alt = "mapsImg"className='w-screen' />
     </div>
     <div className='flex justify-center relative'>
-     <input placeholder='Enter Postal Code' className='w-3/12 items-center p-2 my-32 mx-2 bg-black outline-none text-white ' onChange={(e) => setPostalCode(e.target.value)}/>
+     <input value={postalCode} placeholder='Enter Postal Code' className='w-3/12 items-center p-2 my-32 mx-2 bg-black outline-none text-white ' onChange={(e) => setPostalCode(e.target.value)}/>
+    <div>
+
       <button className='bg-black text-white p-2 m-2 rounded-lg my-32 mx-2' onClick={handleClick}>Submit</button>
+      <button className='p-2 m-2 bg-black text-white rounded-lg' onClick={clearHandler}>Clear</button>
+    </div>
     </div>
 
     </>

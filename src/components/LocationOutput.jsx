@@ -7,9 +7,7 @@ const LocationOutput = () => {
   const selectPostalCode = useSelector((state) => state.app.postalCode)
   const loading = useSelector(state => state.app.loading);
   const dispatch = useDispatch();
-  const clearHandler = () => {
-     dispatch(selectPostalCode(""))
-   }
+ 
 
    if(loading) {
     <div className='flex w-10 h-10  items-center justify-center mx-auto absolute z-[99]'>
@@ -36,7 +34,7 @@ const LocationOutput = () => {
           })
         }
       </div>
-      <button className='p-2 m-2 bg-black text-white rounded-lg' onClick={clearHandler}>Clear</button>
+     
         </div>
       ) : <p className='text-3xl text-black relative z-50'>This postal code doesn't exist.</p>
      
