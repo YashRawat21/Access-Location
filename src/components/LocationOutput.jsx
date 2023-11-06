@@ -1,10 +1,22 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Loader from './Loader';
 
 const LocationOutput = () => {
   const data = useSelector((state) => state.app.location);
- 
+  const selectPostalCode = useSelector((state) => state.app.postalCode)
+  const loading = useSelector(state => state.app.loading);
+  const dispatch = useDispatch();
+  const clearHandler = () => {
+     dispatch(selectPostalCode(""))
+   }
+
+   if(loading) {
+    <div className='flex w-10 h-10  items-center justify-center mx-auto absolute z-[99]'>
+        <Loader />
+    </div>
+   }
+
   return (
     <>
     {
@@ -24,8 +36,9 @@ const LocationOutput = () => {
           })
         }
       </div>
+      <button className='p-2 m-2 bg-black text-white rounded-lg' onClick={clearHandler}>Clear</button>
         </div>
-      ) : <Loader />
+      ) : <p className='text-3xl text-black relative z-50'>This postal code doesn't exist.</p>
      
     }
     </>
